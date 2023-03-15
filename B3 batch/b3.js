@@ -227,6 +227,8 @@
 // third();
 
 
+// Callbacks example
+//Example 1:-
 
 // function task1(t2){
 //     console.log('Task 1');
@@ -259,7 +261,7 @@
 
 
 
-//1 3 5 2 4
+//Example 2:-
 
 // const addOne = (value) => value + 1;
 // const addTwo = (value) => addOne(value + 1);
@@ -271,11 +273,11 @@
 // };
 // calculation();
 
-
+//Output:-
 //calculation--> addThree --> addTwo --> addOne (4)+(4)
 
 
-
+//Promises example 1 -
 // const myPromise = new Promise((resolve,reject)=>{
 //     let sum = 10+10;
 //     if(sum===20){
@@ -292,6 +294,9 @@
 //     console.log('Catch executed...sum not greater than 20',message);
 // })
 
+
+
+//Exaple 2:-
 // console.log('a');
 
 // setTimeout(()=>{
@@ -304,20 +309,31 @@
 
 // console.log('d');
 
+
+//Output:- a d b c
+
+
+
+//Example 3:-
 // const timeout = (time) => {
 //   return (new Promise((resolve,reject)=>{
 //   setTimeout(resolve, time)
 //   } ))
 // }
-// timeout(1000).then(() => {
+// timeout(1000)
+//.then(() => {
 //     console.log('Hi after 1 second');
 //     return timeout(1000);
-//   }).then(() => {
+//   })
+//.then(() => {
 //     console.log('Hi after 2 seconds');
 //   })
 
 
 
+
+
+//Example 4 (switching previous task example of callbacks to promises):-
 // const tasks=(time)=>{
 //     return (new Promise((resolve,reject)=>{
 //         setTimeout(resolve,time);
@@ -344,6 +360,9 @@
 // })
 
 
+
+
+// Login-register 
 let register=true;
 let login = true;
 
