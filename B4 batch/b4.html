@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        form{
+          margin-left: 29%;
+          border: 5px solid rgb(2, 51, 51);
+          display: inline-block;
+          text-align:justify;
+        }
+      </style>
+
+    <title>Document</title>
+    
+</head>
+<body>
+  
+    <h2><em>Learning JS Events</em></h2>
+    <h4>Form</h4>
+    <form >
+    <div onmouseover="overIt()" onmouseleave="leaveIt()">
+        <label >Name:</label>
+        <br/>
+        <input placeholder="Enter name here" >
+  </div>
+    <br/><br/>
+
+<div onmouseenter="enterIt()">
+    <label >Age:</label>
+    <br/>
+    <input placeholder="Enter age here" onfocus="focusingI()" onblur="goingOut()" />
+</div>
+    
+    <br/><br/>
+    
+    <label>Experience:</label>
+    <input placeholder="Enter Experience in years" onkeypress="mykeyUp(event)"/>
+    <br/><br/>
+    
+    <label>Review about classes:</label>
+    <textarea onchange="changedValue()" placeholder="Enter review"></textarea><br/>
+    <br/>
+    <button ondblclick="submitted()">Submit</button>
+    </form>
+
+    
+    <script src="b4.js"></script>
+</body>
+
+</html>
