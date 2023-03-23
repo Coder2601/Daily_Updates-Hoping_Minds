@@ -77,7 +77,28 @@ Expected Console Output :
 Input:- 3,2
 Output: 3x1=3
         3x2=6
+        
+20. Write a function to Generate table of a number till a specified range.(accept two number from user: first i/p = which number's table to be generated, second i/p: till what range) 
+Input:- 3,2
+Output: 3x1=3
+        3x2=6
 
+21. Print a message from user after given interval for specified number of times.
+Input:  'What message would you like to share? => "Hello There..!"'
+        'What delay would you like to have? => "5 second"'
+        'For how many time you wish to repeat this? => 6'
+Output: 1. Hello There..! //after 5 seconds
+        2. Hello There..! //after 5 seconds
+        
+        .
+        .
+        6. Hello There..! //after 5 seconds
+
+22. Write a function that takes firstname and lastname from user and returns a function that apparantly returns fullname by concatenating both firstname and lastname.
+
+I/P:    firstname = Divya 
+        lastname = Goyal
+O/P:    Divya Goyal
 
 ******************Hoisting, Arrow functions, DOM*****************************
 1. Find if we can call arrow functions before defining,
