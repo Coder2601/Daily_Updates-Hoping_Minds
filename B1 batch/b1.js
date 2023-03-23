@@ -265,34 +265,273 @@
 
 //onclick, ondblclick, onchange, onfocus,onblur, onkeyup, onkeydown, onmouseover, onmouseenter, onmouseleave
 
+// function submitted(event){
+//     event.preventDefault();
+//     console.log('Form submitted successfuly');
+// };
 
-function triggerButton(){
-    alert('Enter values in input fields..')
+
+
+// var x = document.getElementById('heading2')
+// // console.log(x);
+// x.style.color='cyan';
+// x.style.backgroundColor='orange'
+// x.style.display='inline-block'
+
+// //how to add multiple stylings with one dom manipulation
+
+
+// // console.log( document.getElementById('heading2').innerHTML)
+// // console.log( document.getElementById('heading2').innerText)
+
+// document.getElementById('heading2').innerHTML='<em>Learning JS DOM</em>'
+
+// // document.getElementById('heading2').innerText='<p>Learning JS DOM</p>'
+
+var img = document.getElementById('pic1');
+var photo = true;
+
+function hovering(){
+
+    if(photo){
+        img.src = 'https://imagekit.io/blog/content/images/2019/12/image-optimization.jpg';
+        photo=!photo
+    }
+    else{
+        img.src='https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg';
+        photo=!photo;
+    }
+
 }
 
-const nameInput=()=>{
-    console.log('Typing name...');
+// function update(){
+//     // console.log('typing...');
+//     let elements = document.getElementsByClassName('ip')[1].value;
+//     console.log(elements);
+
+// }
+
+let collection=document.getElementsByClassName('ip');
+
+let myDiv=document.getElementById('values');
+
+
+for(let i=0;i<collection.length;i++){
+    collection[i].addEventListener('change',(event)=>{
+        myDiv.innerHTML += `<p>${event.target.id} : ${event.target.value}</p>`;
+        // console.log(`<p>${event.target.id} : ${event.target.value}</p>`);
+    })
 }
 
-const focussing=()=>{
-    console.log('Focus on age input box')
-}
 
-const blurring=()=>{
-    console.log('Focus diverted from age input box');
-}
+let myButton = document.getElementsByTagName('button')[0];
 
-function downKeyPressed(event){
-    console.log('A key is pressed');
-    console.log(event.key);
-}
 
-function hoverEffect(){
-    console.log('Name field left');
+myButton.addEventListener('click',()=>alert('Button Clicked!'))
+
+
+function func(event){
+    event.preventDefault()
+    myDiv.style.display='block'
 }
 
 
-function submitted(e){
-    // e.preventDefault();
-    console.log('Form submitted successfuly');
-};
+// function a(){
+//     console.log('Countdown of 30 second begins....');
+//     var count = 30
+//     let x = setInterval(()=>{
+//             console.log(count);
+//             count--;
+//         },1000);
+//     setTimeout(()=>{
+//         clearTimeout(x);
+//         alert("Time's Up!!")
+//     },30000);
+// }
+
+// // function b(){
+// //     console.log('b');
+// //     let x = setInterval(()=>{
+// //         console.log('Timeout delay of 5 seconds is called....');
+// //     },5000);
+
+// //     setTimeout(()=>{clearInterval(x); console.log('Cleared Interval');},10000)
+// // }
+// // b();
+// a();
+
+
+
+
+// let tz = 'am'
+// let x = new Date();
+
+// let hours = x.getHours();
+// let mins = x.getMinutes()
+// let sec = x.getSeconds();
+// document.getElementById('liveClock').innerHTML =`<i>${hours} : ${mins} : ${sec} ${tz}</i>`;
+
+// let clock = setInterval(()=>{
+//     sec+=1;
+//     if(sec>60){
+//         sec=1;
+//         mins+=1;
+//     }
+//     if(mins>60){
+//         mins=1;
+//         hours+=1;
+//     }
+//     if(hours>24){
+//         hours=1;
+//     }
+//     if(hours>=12){
+//         tz='pm'
+//     }
+//     else{
+//         tz='am'
+//     }
+//     let print = `${hours} : ${mins} : ${sec} ${tz}`;
+//     document.getElementById('liveClock').innerHTML = `<i>${print}</i>`
+//     // console.log(`${hours} : ${mins} : ${sec}`);
+// },1000)
+
+
+
+
+
+
+// var arr = [1,2,3,4,5,6];
+
+
+// let newArr = arr.map(function(item){
+//     return item*2;
+// })
+// console.log(arr);
+// console.log(newArr);
+
+// //Alternate method by defining arrow function outside map function
+// function demo(item){
+//     return item*2;
+// }
+// let newArr2 = arr.map(demo)
+// console.log(newArr2);
+
+
+
+// let newArr = arr.filter((item)=>{
+//     if(item%2 === 0){
+//         return item;
+//     }
+// })
+
+// console.log(arr);
+// console.log(newArr);
+// var op = arr.reduce(demo,20);
+
+// function demo(a,b){
+//     // console.log(a);
+//     // console.log(b);
+//     // console.log(a+b);
+//     return a*b;
+// }
+// console.log(op);
+
+
+
+
+//op1 = javascript
+//op2 = Learn javascript
+//op = a,a,i
+
+
+// var arr = ['j','a','v','a','s','c','r','i','p','t'];
+// var vowels = ['a','e','i','o','u'];
+
+// arr.forEach((item)=>{
+//     if(vowels.includes(item)){
+//         console.log(item);
+//     }
+// })
+// var onlyVowels = arr.filter((item)=>{
+//     if(vowels.includes(item))return item;
+
+// })
+// console.log(onlyVowels);
+
+// let op1 = arr.reduce((acc,cv)=>acc+cv) //javascript
+// let op2 = arr.reduce((acc,cv)=>acc+cv,'Learn ') //Learn javascript
+
+// let op3 = arr.filter(vowelFilter);
+
+// function vowelFilter (item){
+//     if(item=='a'||item=='e'||item=='i'||item=='o'||item=='u'){
+//         return item;
+//     }
+// }
+// console.log(op1);
+// console.log(op2);
+// console.log(op3);
+
+
+//Objects methods
+// var myObj = {
+//     fname:'Pika',
+//     lname:'Chu',
+//     fullname:function(){
+//         return (`${this.fname} ${this.lname}`)
+//     }
+// }
+// console.log(myObj.fullname());
+
+// function printing(game,time){
+//     let x = `${this.fullname()} loves to play ${game} in the ${time}`
+//     console.log(x);
+// }
+//apply method 
+//1. Binds a function with another function or another object
+//2. Executes function at same time.
+//3. all parameters are passed in an array
+// printing.call(myObj,'football','morning.');
+// printing.apply(myObj,['chess','evening.']);
+
+
+
+//Hoisting-> defines the functions and declare the variables on top-level.
+
+
+
+// xyz();
+// var x = 10;
+// function xyz(){
+//     x=50;
+//     console.log(x);
+// }
+
+
+//Closures-> when a func is defined inside another func then parent func will not have access to child func properties, whereas vice versa is possible and that forms a closure
+
+// function parent(){
+//     var x = 10;
+//     child();
+
+//     function child(){
+//         // var x = 50;
+//         var y=45;
+//         console.log(x);
+//     }
+//     console.log(y);
+// }
+
+
+// parent();
+
+
+
+//Higher Order Functions- funcs that either take a func as an argument or returns a func or do both
+function parent(){
+    var x = 10;
+    return (function(){
+        return x;
+    });
+}
+console.log(parent()());
