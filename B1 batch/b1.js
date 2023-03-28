@@ -288,21 +288,21 @@
 
 // // document.getElementById('heading2').innerText='<p>Learning JS DOM</p>'
 
-var img = document.getElementById('pic1');
-var photo = true;
+// var img = document.getElementById('pic1');
+// var photo = true;
 
-function hovering(){
+// function hovering(){
 
-    if(photo){
-        img.src = 'https://imagekit.io/blog/content/images/2019/12/image-optimization.jpg';
-        photo=!photo
-    }
-    else{
-        img.src='https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg';
-        photo=!photo;
-    }
+//     if(photo){
+//         img.src = 'https://imagekit.io/blog/content/images/2019/12/image-optimization.jpg';
+//         photo=!photo
+//     }
+//     else{
+//         img.src='https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/2.jpg';
+//         photo=!photo;
+//     }
 
-}
+// }
 
 // function update(){
 //     // console.log('typing...');
@@ -311,29 +311,29 @@ function hovering(){
 
 // }
 
-let collection=document.getElementsByClassName('ip');
+// let collection=document.getElementsByClassName('ip');
 
-let myDiv=document.getElementById('values');
-
-
-for(let i=0;i<collection.length;i++){
-    collection[i].addEventListener('change',(event)=>{
-        myDiv.innerHTML += `<p>${event.target.id} : ${event.target.value}</p>`;
-        // console.log(`<p>${event.target.id} : ${event.target.value}</p>`);
-    })
-}
+// let myDiv=document.getElementById('values');
 
 
-let myButton = document.getElementsByTagName('button')[0];
+// for(let i=0;i<collection.length;i++){
+//     collection[i].addEventListener('change',(event)=>{
+//         myDiv.innerHTML += `<p>${event.target.id} : ${event.target.value}</p>`;
+//         // console.log(`<p>${event.target.id} : ${event.target.value}</p>`);
+//     })
+// }
 
 
-myButton.addEventListener('click',()=>alert('Button Clicked!'))
+// let myButton = document.getElementsByTagName('button')[0];
 
 
-function func(event){
-    event.preventDefault()
-    myDiv.style.display='block'
-}
+// myButton.addEventListener('click',()=>alert('Button Clicked!'))
+
+
+// function func(event){
+//     event.preventDefault()
+//     myDiv.style.display='block'
+// }
 
 
 // function a(){
@@ -363,37 +363,37 @@ function func(event){
 
 
 
-// let tz = 'am'
-// let x = new Date();
+let tz = 'am'
+let x = new Date();
 
-// let hours = x.getHours();
-// let mins = x.getMinutes()
-// let sec = x.getSeconds();
-// document.getElementById('liveClock').innerHTML =`<i>${hours} : ${mins} : ${sec} ${tz}</i>`;
+let hours = x.getHours();
+let mins = x.getMinutes()
+let sec = x.getSeconds();
+document.getElementById('liveClock').innerHTML =`<i>${hours} : ${mins} : ${sec} ${tz}</i>`;
 
-// let clock = setInterval(()=>{
-//     sec+=1;
-//     if(sec>60){
-//         sec=1;
-//         mins+=1;
-//     }
-//     if(mins>60){
-//         mins=1;
-//         hours+=1;
-//     }
-//     if(hours>24){
-//         hours=1;
-//     }
-//     if(hours>=12){
-//         tz='pm'
-//     }
-//     else{
-//         tz='am'
-//     }
-//     let print = `${hours} : ${mins} : ${sec} ${tz}`;
-//     document.getElementById('liveClock').innerHTML = `<i>${print}</i>`
-//     // console.log(`${hours} : ${mins} : ${sec}`);
-// },1000)
+let clock = setInterval(()=>{
+    sec+=1;
+    if(sec>60){
+        sec=1;
+        mins+=1;
+    }
+    if(mins>60){
+        mins=1;
+        hours+=1;
+    }
+    if(hours>24){
+        hours=1;
+    }
+    if(hours>=12){
+        tz='pm'
+    }
+    else{
+        tz='am'
+    }
+    let print = `${hours} : ${mins} : ${sec} ${tz}`;
+    document.getElementById('liveClock').innerHTML = `<i>${print}</i>`
+    // console.log(`${hours} : ${mins} : ${sec}`);
+},1000)
 
 
 
@@ -489,8 +489,9 @@ function func(event){
 // }
 //apply method 
 //1. Binds a function with another function or another object
-//2. Executes function at same time.
-//3. all parameters are passed in an array
+//2. Executes the  function at same time.
+///3. all parameters are passed in an array
+
 // printing.call(myObj,'football','morning.');
 // printing.apply(myObj,['chess','evening.']);
 
@@ -528,10 +529,132 @@ function func(event){
 
 
 //Higher Order Functions- funcs that either take a func as an argument or returns a func or do both
-function parent(){
-    var x = 10;
-    return (function(){
-        return x;
-    });
+// function parent(){
+//     var x = 10;
+//     return (function(){
+//         return x;
+//     });
+// }
+// console.log(parent()());
+
+
+
+//Callstack 
+
+// function a(x){
+//     return x+1;
+// }
+// function b(y){
+//     return a(y+1)
+// }
+// function c(z){
+//     return b(z+1);
+// }
+// console.log(c(3));
+
+
+
+//Callback Queue
+// function a(func){
+//     setTimeout(()=>{
+//         console.log('a');
+//         func();
+//     },5000)
+// }
+
+// function b(){
+//     setTimeout(()=>console.log('b'),2000)
+// }
+
+// a(b);
+
+
+
+
+
+
+function task1(t2){
+    setTimeout(()=>{
+        console.log('T1');
+        t2(t3)
+    },1000)
 }
-console.log(parent()());
+function task2(t3){
+    setTimeout(()=>{
+        console.log('T2');
+        t3()
+    })  
+}
+function task3(){
+    console.log('T3');
+}
+task1(task2);
+
+
+//b
+//a
+// let hdng = document.querySelector('.myHdng')
+// console.log(hdng.innerText);
+
+// hdng.innerHTML = `<a href='#'>Form </a>`
+
+//Callback Hell, Pyramid of Doom
+// function task1(){
+//     setTimeout(()=>{
+//         console.log('Task 1 executed after 1s..')
+//         setTimeout(()=>{
+//             console.log('Task 1 executed after 1s..')
+//             setTimeout(()=>{
+//                 console.log('Task 1 executed after 1s..')
+//                 setTimeout(()=>{
+//                     console.log('Task 1 executed after 1s..')
+//                     setTimeout(()=>{
+//                         console.log('Task 1 executed after 1s..')
+//                         setTimeout(()=>{
+//                             console.log('Task 1 executed after 1s..')
+//                             setTimeout(()=>{
+//                                 console.log('Task 1 executed after 1s..')
+//                                 setTimeout(()=>{
+//                                     console.log('Task 1 executed after 1s..')
+//                                 }, 1000)
+//                             }, 1000)
+//                         }, 1000)
+//                     }, 1000)
+//                 }, 1000)
+//             }, 1000)
+//         }, 1000)
+//     }, 1000)
+// }
+// task1()
+
+
+
+//Promises
+// var age = 21;
+// var myPromise = new Promise((resolve,reject)=>{
+//     if(age>=18){
+//         resolve('Resolved: Eligible');
+//     }else{
+//         reject('Rejected: Not eligible');
+//     }
+// }).then((response)=>console.log(`then executed : ${response}`))
+// .catch((err)=>{console.log(`catch executed: ${err}`)})
+
+
+
+//Promise Chaining
+function timer(time){
+    return new Promise((resolve)=>{
+        return setTimeout(resolve,time);
+    })
+}
+timer(3000)
+.then(()=>{
+    console.log('Task 1 executed !!');
+    return timer(2000)
+})
+.then(()=>{
+    console.log('Task 2 executed!!');
+    return timer(5000)
+})
+.catch(err=>console.log(err))

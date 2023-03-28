@@ -1,52 +1,62 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
     <style>
-        form{
-          margin-left: 29%;
-          border: 5px solid rgb(2, 51, 51);
-          display: inline-block;
-          text-align:justify;
-        }
-      </style>
+      body{
+        text-align: center;
+      }
+      form{
+        border: 5px solid rgb(2, 51, 51);
+        display: inline-block;
+        text-align:justify;
+      }
+    </style>
 
-    <title>Document</title>
-    
 </head>
 <body>
-  
-    <h2><em>Learning JS Events</em></h2>
-    <h4>Form</h4>
-    <form >
-    <div onmouseover="overIt()" onmouseleave="leaveIt()">
-        <label >Name:</label>
-        <br/>
-        <input placeholder="Enter name here" >
-  </div>
-    <br/><br/>
+  <h2 id="heading2">
+    <em>Learning JS Events</em>
+  </h2>
+    <h4 id="heading4">Form</h4>
+    <form onsubmit="submitted(event)">
+    
+      <label class="labelTags">Name:</label>
+      <br/>
+      <input name="Name" class='ip' id="name" onchange="op(event)" placeholder="Enter name here" />
+      <br/><br/>
 
-<div onmouseenter="enterIt()">
-    <label >Age:</label>
-    <br/>
-    <input placeholder="Enter age here" onfocus="focusingI()" onblur="goingOut()" />
-</div>
+      <label class="labelTags">Age:</label>
+      <br/>
+      <input name="Age" class='ip' placeholder="Enter age here"  id='age' onchange="op(event)" />
+      <br/><br/>
     
-    <br/><br/>
+      <label class="labelTags">Experience:</label>
+      <input name="Experience" id="experience" class='ip' placeholder="Enter Experience in years" onchange="op(event)"/>
+      <br/><br/>
     
-    <label>Experience:</label>
-    <input placeholder="Enter Experience in years" onkeypress="mykeyUp(event)"/>
-    <br/><br/>
-    
-    <label>Review about classes:</label>
-    <textarea onchange="changedValue()" placeholder="Enter review"></textarea><br/>
-    <br/>
-    <button ondblclick="submitted()">Submit</button>
+      <label class="labelTags">Review about classes:</label>
+      <textarea name="Review" id='review' class='ip' placeholder="Enter review" onchange="op(event)"></textarea>
+      <br/><br/>
+
+      <button id="btn">Submit</button>
     </form>
+    <br/>
+    <h2 id="response"></h2>
 
-    
+    <h4 id="printTime">Timer</h4>
+    <input id="timeVal" placeholder="Enter timer value in seconds" />
+    <br/><br/>
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="reset()">reset</button>
+
+
     <script src="b4.js"></script>
+    <audio id="sound" src="http://reboot-me.com/ouch.mp3" ></audio>
 </body>
 
 </html>
