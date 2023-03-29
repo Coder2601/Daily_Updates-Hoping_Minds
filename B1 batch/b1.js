@@ -573,22 +573,22 @@ let clock = setInterval(()=>{
 
 
 
-function task1(t2){
-    setTimeout(()=>{
-        console.log('T1');
-        t2(t3)
-    },1000)
-}
-function task2(t3){
-    setTimeout(()=>{
-        console.log('T2');
-        t3()
-    })  
-}
-function task3(){
-    console.log('T3');
-}
-task1(task2);
+// function task1(t2){
+//     setTimeout(()=>{
+//         console.log('T1');
+//         t2(t3)
+//     },1000)
+// }
+// function task2(t3){
+//     setTimeout(()=>{
+//         console.log('T2');
+//         t3()
+//     })  
+// }
+// function task3(){
+//     console.log('T3');
+// }
+// task1(task2);
 
 
 //b
@@ -643,18 +643,62 @@ task1(task2);
 
 
 //Promise Chaining
-function timer(time){
-    return new Promise((resolve)=>{
-        return setTimeout(resolve,time);
+// function timer(time){
+//     return new Promise((resolve)=>{
+//         return setTimeout(resolve,time);
+//     })
+// }
+// timer(3000)
+// .then(()=>{
+//     console.log('Task 1 executed !!');
+//     return timer(2000)
+// })
+// .then(()=>{
+//     console.log('Task 2 executed!!');
+//     return timer(5000)
+// })
+// .catch(err=>console.log(err))
+
+//API - Application Programming Interface
+
+
+//Using fetch and axios
+
+//add "<script src="https://unpkg.com/axios/dist/axios.min.js"></script>"  in head section to use AXIOS
+
+
+//URI  // URL
+
+
+const result = axios('https://jsonplaceholder.typicode.com/posts')
+console.log(result);
+
+result.then((response)=>{
+    return response.data
+}).then((data)=>{
+    // console.log(data);
+    data.forEach(item=>{
+        // console.log(item);
+        for(let key in item){
+            // console.log(`${key}: ${(item)[key]}`);
+            document.getElementById('apiResponse').innerHTML += `${key}: ${(item)[key]} <br/>`
+        }
+        document.getElementById('apiResponse').innerHTML += `<br/> <hr> <br/>`
     })
-}
-timer(3000)
-.then(()=>{
-    console.log('Task 1 executed !!');
-    return timer(2000)
 })
-.then(()=>{
-    console.log('Task 2 executed!!');
-    return timer(5000)
-})
-.catch(err=>console.log(err))
+
+
+let isReg = true;
+let isLogged = true;
+new Promise((resolve,reject)=>{
+    if(!isReg && !isLogged){
+        reject(`Registration Pending..!!`)
+    }
+    else if(isReg && !isLogged){
+        reject(`Login Pending..!!!!`)
+    }
+    else{
+        resolve(`Access Granted`)
+    }
+}).then(response=>console.log(`Log in Success.. ${response}`))
+.catch(err=>console.log(`${err} Rejected!`))
