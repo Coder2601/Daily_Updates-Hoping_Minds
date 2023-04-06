@@ -363,37 +363,37 @@
 
 
 
-let tz = 'am'
-let x = new Date();
+// let tz = 'am'
+// let x = new Date();
 
-let hours = x.getHours();
-let mins = x.getMinutes()
-let sec = x.getSeconds();
-document.getElementById('liveClock').innerHTML =`<i>${hours} : ${mins} : ${sec} ${tz}</i>`;
+// let hours = x.getHours();
+// let mins = x.getMinutes()
+// let sec = x.getSeconds();
+// document.getElementById('liveClock').innerHTML =`<i>${hours} : ${mins} : ${sec} ${tz}</i>`;
 
-let clock = setInterval(()=>{
-    sec+=1;
-    if(sec>60){
-        sec=1;
-        mins+=1;
-    }
-    if(mins>60){
-        mins=1;
-        hours+=1;
-    }
-    if(hours>24){
-        hours=1;
-    }
-    if(hours>=12){
-        tz='pm'
-    }
-    else{
-        tz='am'
-    }
-    let print = `${hours} : ${mins} : ${sec} ${tz}`;
-    document.getElementById('liveClock').innerHTML = `<i>${print}</i>`
-    // console.log(`${hours} : ${mins} : ${sec}`);
-},1000)
+// let clock = setInterval(()=>{
+//     sec+=1;
+//     if(sec>60){
+//         sec=1;
+//         mins+=1;
+//     }
+//     if(mins>60){
+//         mins=1;
+//         hours+=1;
+//     }
+//     if(hours>24){
+//         hours=1;
+//     }
+//     if(hours>=12){
+//         tz='pm'
+//     }
+//     else{
+//         tz='am'
+//     }
+//     let print = `${hours} : ${mins} : ${sec} ${tz}`;
+//     document.getElementById('liveClock').innerHTML = `<i>${print}</i>`
+//     // console.log(`${hours} : ${mins} : ${sec}`);
+// },1000)
 
 
 
@@ -538,6 +538,85 @@ let clock = setInterval(()=>{
 // console.log(parent()());
 
 
+// function addition(a,b,func){
+//     let sum = a+b;
+//     console.log(sum);
+//     func(sum)
+// }
+
+// function subtration(x){
+//     console.log(100-x);
+// }
+
+// addition(5,6,subtration)
+
+
+//Calback Hell / Pyramid of Doom
+// function task1(){
+//     console.log('Task 1 started...');
+//     setTimeout(()=>{
+//         console.log('Task 2 started...');
+//         setTimeout(()=>{
+//             console.log('Task 3 started...');
+//             setTimeout(()=>{
+//                 console.log('Task 3 ended.!');
+//                 setTimeout(()=>{
+//                     console.log('Task 2 ended.!');
+//                     setTimeout(()=>{
+//                         console.log('Task 1 ended.!');
+//                     },1000)
+//                 },1000)
+//             },1000)
+//         },3000);
+//     },2000)
+// }
+
+// task1()
+
+
+
+
+// Create a function addOne that takes a number as an argument and returns (number + 1). Then return this function inside addTwo function where argument of addTwo + 1 will be passed to addOne function
+
+
+
+//func calc(){
+//     return add4(4)+add3(1)
+// }
+
+// func add2(val){
+//     return add1(val+1)   
+// }
+
+// func add1(val){
+//     return val+1
+// }
+
+
+
+
+
+
+
+
+// function addOne(value){
+//     return value+1;
+// }
+// function addTwo(value){
+//     return addOne(value+1)
+// }
+// function addThree(value){
+//     return addTwo(value+1)
+// }
+
+// const calculation=()=>{
+//     return addThree(2)+addTwo(6)
+// }
+// calculation();
+
+
+
+
 
 //Callstack 
 
@@ -659,6 +738,25 @@ let clock = setInterval(()=>{
 // })
 // .catch(err=>console.log(err))
 
+
+// Promise Example - register n login
+// let isReg = false;
+// let isLogged = false;
+
+
+// new Promise((resolve,reject)=>{
+//     if(!isReg && !isLogged){
+//         reject(`Registration Pending..!!`)
+//     }
+//     else if(isReg && !isLogged){
+//         reject(`Login Pending..!!!!`)
+//     }
+//     else{
+//         resolve(`Access Granted`)
+//     }
+// }).then(response=>console.log(`Log in Success.. ${response}`))
+// .catch(err=>console.log(`${err} Rejected!`))
+
 //API - Application Programming Interface
 
 
@@ -670,35 +768,56 @@ let clock = setInterval(()=>{
 //URI  // URL
 
 
-const result = axios('https://jsonplaceholder.typicode.com/posts')
-console.log(result);
+// const result = axios('https://jsonplaceholder.typicode.com/posts')
+// console.log(result);
 
-result.then((response)=>{
-    return response.data
-}).then((data)=>{
-    // console.log(data);
-    data.forEach(item=>{
-        // console.log(item);
-        for(let key in item){
-            // console.log(`${key}: ${(item)[key]}`);
-            document.getElementById('apiResponse').innerHTML += `${key}: ${(item)[key]} <br/>`
-        }
-        document.getElementById('apiResponse').innerHTML += `<br/> <hr> <br/>`
-    })
-})
+// result.then((response)=>{
+//     return response.data
+// }).then((data)=>{
+//     // console.log(data);
+//     data.forEach(item=>{
+//         // console.log(item);
+//         for(let key in item){
+//             // console.log(`${key}: ${(item)[key]}`);
+//             document.getElementById('apiResponse').innerHTML += `${key}: ${(item)[key]} <br/>`
+//         }
+//         document.getElementById('apiResponse').innerHTML += `<br/> <hr> <br/>`
+//     })
+// })
 
 
-let isReg = true;
-let isLogged = true;
-new Promise((resolve,reject)=>{
-    if(!isReg && !isLogged){
-        reject(`Registration Pending..!!`)
-    }
-    else if(isReg && !isLogged){
-        reject(`Login Pending..!!!!`)
-    }
-    else{
-        resolve(`Access Granted`)
-    }
-}).then(response=>console.log(`Log in Success.. ${response}`))
-.catch(err=>console.log(`${err} Rejected!`))
+
+
+// var no1 = parseInt(prompt('Enter no 1'))
+// var no2 = parseInt(prompt('Enter no 2'))
+// var no3 = parseInt(prompt('Enter no 3'))
+
+// let product = no1*no2*no3;
+
+// if(product>0){
+//     alert('+')
+// }
+// else if(product<0){
+//     alert('-')
+// }
+
+//Callback Hell / pyramid of doom
+// function a(){
+//     setTimeout(()=>{
+//         console.log('a');
+//         setTimeout(()=>{
+//             console.log('a');
+//             setTimeout(()=>{
+//                 console.log('a');
+//                 setTimeout(()=>{
+//                     console.log('a');
+//                 },5000)
+//             },5000)
+//         },5000)
+//     },5000)
+// }
+
+
+// a();
+
+//5s -> task1, 4s -> task2, 3s -> task3, 2s ->task4

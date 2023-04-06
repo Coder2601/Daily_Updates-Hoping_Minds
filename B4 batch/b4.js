@@ -468,15 +468,244 @@
 
 // console.log(newDate.getTime());
 
-function foo(a,b){
-    var y = 5;
-    a()
-    b()
-    return x*y
-}
+// function foo(a,b){
+//     var y = 5;
+//     a()
+//     b()
+//     return x*y
+// }
 
-function bar(b){
-    var a=80;
-    return a+b
+// function bar(b){
+//     var a=80;
+//     return a+b
+// }
+// bar(10);
+
+
+// function addition(a,b){
+//     console.log('Addition function called..');
+//     let sum = a+b;
+    
+//     setTimeout(()=>{
+//         console.log(sum);
+//         subtraction(sum);
+//         console.log('Addition done.');
+//     },2000)
+
+    
+
+// }
+
+// function subtraction(x){
+//     console.log('Subtraction function called...');
+//     console.log(100-x);
+//     console.log('Subtraction done.');
+// }
+
+// addition(5,9)
+
+
+//Callback Hell or Pyramid of doom
+// const func1=()=>{
+//     console.log('called task 1 for 5 seconds');
+//     setTimeout(()=>{
+//         console.log('Called task 2 for 2 seconds');
+//         setTimeout(()=>{
+//             console.log('Called task 3 for 3 seconds'); 
+//             setTimeout(()=>{
+//                 console.log('Called task 4 for 4 seconds');
+//                 setTimeout(()=>{
+//                     console.log('task 4 executed');  
+//                     console.log('task 3 executed');  
+//                     console.log('task 2 executed');  
+//                     console.log('task 1 executed');        
+//                 },4000)        
+//             },3000)       
+//         },2000)
+//     },5000)
+// }
+
+// func1();
+
+
+// let i = parseInt(prompt('Enter years of experience..'))
+// let myPromise = new Promise((resolve,reject)=>{
+//     if(i>5){
+//         resolve(`You're hired.`)
+//     }
+//     else{
+//         reject(`Better Luck next time!`)
+//     }
+// });
+// myPromise.then((response)=>{
+// console.log(`Resolved : ${response}`);
+// })
+// .catch((error)=>{
+// console.log(`Rejected : ${error}`);
+// })
+
+
+
+// let a = parseInt(prompt('Enter first number'))
+// let b = parseInt(prompt('Enter second number'))
+
+// let results = new Promise((resolve,reject)=>{
+//     let sum = a+b;
+//     resolve(sum);
+// })
+// .then((sum)=>{
+//     setTimeout(()=>{
+//         console.log(sum);
+//         let sub = 100-sum;
+//         console.log(sub);
+//         return sub;
+//     },2000)
+// }).catch((error)=>console.log(error))
+
+
+
+// function promiseHell(time){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve(`Called promise for ${Math.round(time/1000)} seconds`);
+//         },time)
+//     })
+// }
+
+// promiseHell(5000)
+// .then((response)=>{
+//     console.log(response);
+//     return promiseHell(2000);
+// })
+// .then((response)=>{
+//     console.log(response);
+//     return promiseHell(3000);
+// })
+// .then((response)=>{
+//     console.log(response);
+//     return promiseHell(4000);
+// })
+// .then((response)=>{
+//     console.log(response);
+// })
+// .catch((error)=>console.log(error))
+
+
+
+
+// let isReg = true;
+// let isLoggedIn = false;
+
+// new Promise((resolve,reject)=>{
+//     if(!isReg && !isLoggedIn){
+//         reject(`Registration Pending!!!`)
+//     }
+//     else if(isReg && !isLoggedIn){
+//         reject(`Login Pending`)
+//     }
+//     else if(isReg && isLoggedIn){
+//     resolve(`You're in "~" `)
+//     }
+// })
+// .then((msg)=>console.log(msg))
+// .catch((error)=>console.log(error))
+
+
+
+
+// function task1 (t2){
+//         setTimeout(async()=>{
+//             console.log(`Called task 1 for 1 second`);
+//             await t2(task3);
+//         },1000)
+// }
+// function task2 (task3){
+//     setTimeout(async()=>{
+//         console.log(`Called task 2 for 2 seconds`);
+//         await task3(task4);
+//     },2000)
+// }
+// function task3 (task4){
+//     setTimeout(async()=>{
+//         console.log(`Called task 3 for 3 seconds`);
+//         await task4()
+//     },3000)
+// }
+// function task4 (){
+//     setTimeout(()=>{
+//         console.log(`Called task 4 for 4 seconds`);
+//     },4000)
+// }
+
+// task1(task2)
+
+
+// var result = fetch('https://jsonplaceholder.typicode.com/todos',{
+//     method:"GET",
+//     headers:{
+//         "content-type":"application/json"
+//     }
+// })
+// console.log(result);
+
+// result.then((response)=>{
+//     return(response.json())
+// })
+// .then((data)=>{
+//     console.log(data);
+// })
+
+
+//     var x = Math.floor(Math.random()*data.length)
+//     console.log(data[x]);
+// })
+    // data.forEach((item)=>{
+    //     for(key in item){
+    //         console.log(`${key} :  ${(item)[key]}`);
+
+    //         document.getElementById('apiResponse').innerHTML += `${key} :  ${(item)[key]} <br/>`
+    // }
+    // document.getElementById('apiResponse').innerHTML +=`<br/><br/>`
+    // })
+// })
+
+
+
+// function promiseHell(time){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log(`Called promise for ${time/1000} seconds`);
+//             resolve();
+//         },time)
+//     })
+// }
+
+// async function exec(){
+//     try {
+//         await promiseHell(5000);
+//         await promiseHell(4000);
+//         await promiseHell(3000);
+//         await promiseHell(2000);
+//     } catch (error) {
+//        console.log(`Error : ${error}`); 
+//     }
+// }
+// exec();
+
+
+
+async function apiFetch(){
+var result = await axios('https://jsonplaceholder.typicode.com/todos',{
+    method:"GET",
+    headers:{
+        "content-type":"application/json"
+    }
+})
+try {
+    let response = result
+    console.log(response.data);
+} catch (error) {
+    console.log(error);
 }
-bar(10);
+}
+apiFetch();
