@@ -1,17 +1,42 @@
-import Counter from "./Components/Counter"
+import React from "react"
+import  EmployeeForm from "./Components/project/EmployeeForm"
+import Counter from './Components/pureComponents/Counter'
+import Chairs from "./Components/musicalChair/Chairs"
+import Heading from "./Components/props/HeadingClass"
+import HeadingFunction from "./Components/props/HeadingFunction"
+import Button from "./Components/props/Button"
+import PeopleParent from "./Components/props/peopleExample/PeopleParent"
 import Form from "./Components/Form"
-import TrialF from "./Components/TrialF"
+import FishTable from "./Components/list_Rendering/FishTable"
 
 
-function App(){
-  return(
-    <>
-    <h1>React Beginners...</h1>
-    {/* <TrialF /> */}
-    {/* <Counter /> */}
-    <br/><br/>
-    <Form />
-    </>
-  )
+class App extends React.Component{
+  constructor(){
+    super();
+    this.state={
+      msg:'Welcome user'
+    }
+  }
+
+  render(){
+    return(
+      <>
+        <h2>React Session on Props</h2>
+        
+        {/* <Heading a={this.state.msg} />
+        
+        <HeadingFunction kuchbhi={this.state.msg} /> */}
+
+        {/* <EmployeeForm /> */}
+        {/* <Counter /> */}
+        {/* <Chairs /> */}
+        {/* < Button /> */}
+        {/* <PeopleParent /> */}
+        {/* <Form /> */}
+        <Counter />
+        {/* <FishTable /> */}
+      </>
+    )
+  }
 }
 export {App}

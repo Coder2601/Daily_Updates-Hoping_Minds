@@ -1,0 +1,26 @@
+.chairs{
+    width: 90px;
+    height: fit-content;
+    display: inline-block;
+    background-color: cadetblue;
+    margin: 5px 5px auto;
+    text-align: center;
+    border: 2px solid rgb(0, 255, 42);
+    color: antiquewhite;
+    font-size: larger;
+    font-style: oblique;
+    text-shadow: 2px 1px 2px black;
+}
+.chairsE{
+    width: 90px;
+    height: fit-content;
+    display: inline-block;
+    background-color: rgb(176, 44, 44);
+    margin: 5px 5px auto;
+    text-align: center;
+    border: 2px solid rgb(0, 255, 42);
+    color: antiquewhite;
+    font-size: larger;
+    font-style: oblique;
+    text-shadow: 2px 1px 2px black;
+}

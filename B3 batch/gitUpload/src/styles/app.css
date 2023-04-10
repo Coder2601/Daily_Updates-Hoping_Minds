@@ -1,0 +1,23 @@
+.hdngF{
+    color: orange;
+    background-color: black;
+    border: 2px solid cyan;   
+}
+.newHdng{
+    font-family: cursive;
+}
+.myForm{
+    border: 5px solid plum;
+    display: inline-block;
+    background-color: brown;
+    text-align: left;
+}
+
+.body{
+    text-align: center;
+
+}
+button{
+    background-color: black;
+    color: antiquewhite;
+}
