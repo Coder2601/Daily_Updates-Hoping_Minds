@@ -1,0 +1,16 @@
+.AppCourses{
+    background-color: rgb(51, 33, 153);
+    color: rgb(233, 141, 159);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+    border: 2px solid chartreuse;
+}
+.List{
+    background-color: cadetblue;
+    color: black;
+    display: flex;
+    /* float: left; */
+    list-style: none;
+    gap: 20px;
+    font-size: 45px;
+}
