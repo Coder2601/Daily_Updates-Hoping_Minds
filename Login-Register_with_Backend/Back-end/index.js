@@ -52,10 +52,15 @@ app.post('/login',async(req,res)=>{
     const result = await Model.find({username:username})
     console.log(result[0].password, password);
 
-    if(result[0].password===password){
-        res.send(result);
-    }else{
-        res.send({msg:'Wrong Creds'})
+    if(result!= null){
+        if(result[0].password===password){
+            res.send({msg:'Login Success'});
+        }else{
+            res.send({msg:'Wrong Creds'})
+        }
+    }
+    else{
+        res.send({msg:'Login Failed! User not found'})
     }
 })
 
