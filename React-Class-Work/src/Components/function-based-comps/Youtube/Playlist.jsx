@@ -16,10 +16,11 @@ const Playlist = () => {
                 </tr>
                 {playlists.map((item,index)=>{
                     return(
-                        <PlayListRow key={index} btnid={index} listItems={item} />
+                        <PlayListRow key={index} id={index} listItems={item} />
                     )
                 })}
             </tbody>
+            
         </table>
     </YoutubeContext>
   )
