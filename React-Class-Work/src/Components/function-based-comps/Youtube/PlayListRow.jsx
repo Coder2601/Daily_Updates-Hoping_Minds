@@ -13,9 +13,9 @@ const PlayListRow = ({ listItems, id }) => {
                 <td>
                 {
                     subscriptions[id]?
-                    <button id={id} onClick={handleActivate} style={{backgroundColor:'beige'}}>Unsubscribe</button> 
+                    <button id={id} onClick={(e)=>{handleActivate(e)}} style={{backgroundColor:'beige'}}>Unsubscribe</button> 
                     :
-                    <button id={id} onClick={handleActivate} style={{backgroundColor:'lightgreen'}}>Subscribe</button>
+                    <button id={id} onClick={(e)=>{handleActivate(e)}} style={{backgroundColor:'lightgreen'}}>Subscribe</button>
                 }
                 </td>
             </tr>
