@@ -28,6 +28,13 @@ const SongRow = () => {
         }
     })
 
+    const handlePlaySong=(id)=>{
+        document.getElementById(id).play();
+    }
+    const handlePauseSong=(id)=>{
+        document.getElementById(id).pause();
+    }
+
     return (
         <>
             <table>
@@ -43,7 +50,11 @@ const SongRow = () => {
                             <tr key={index}>
                                 <td><img src={item.img} width='50px' height='50px' /></td>
                                 <td><h2>{item.name}</h2></td>
-                                <td><button>Play</button><button>Pause</button></td>
+                                <td>
+                                    <button onClick={()=>handlePlaySong(item.id)}>Play</button>
+                                    <button onClick={()=>handlePauseSong(item.id)}>Pause</button>
+                                </td>
+                                <audio src={item.audio} id={item.id} ></audio>
                             </tr>
                         )
                     })}
