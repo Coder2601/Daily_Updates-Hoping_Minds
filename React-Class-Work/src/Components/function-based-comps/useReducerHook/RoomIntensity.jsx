@@ -34,3 +34,5 @@ const RoomIntensity = () => {
 }
 
 export default RoomIntensity
+
+
