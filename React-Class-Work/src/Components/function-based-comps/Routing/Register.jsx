@@ -16,9 +16,11 @@ const Register = () => {
         console.log(event.target.value, 'matched');
         alert('User already exist!')
       }
-    }else{
-      setUser((prev)=>({...prev,[event.target.id]:event.target.value}));
+      else{
+        setUser((prev)=>({...prev,[event.target.id]:event.target.value}));
+      }
     }
+    setUser((prev)=>({...prev,[event.target.id]:event.target.value}));
     
   }
   const handleSubmit=(event)=>{
