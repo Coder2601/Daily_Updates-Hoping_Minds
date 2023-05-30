@@ -1,0 +1,24 @@
+ul, li{
+    list-style-type: none;
+    float: left;
+}
+ul{
+    background-color: black;
+    padding: 20px;
+}
+li{
+    background-color: black;
+    color: aliceblue;
+    padding: 10px;
+    border: 1.5px solid rgb(223, 151, 8);
+    border-radius: 60px;
+}
+.navBar{
+    display: inline-block;
+}
+
+.footer{
+    margin-top: 250px;
+    bottom: 0;
+    background-color: cadetblue;
+}
