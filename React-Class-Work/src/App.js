@@ -55,10 +55,16 @@ import Home from './Components/function-based-comps/Routing/Home'
 import Courses from './Components/function-based-comps/Routing/Courses'
 import NotFound from './Components/function-based-comps/Routing/NotFound'
 import './Components/function-based-comps/Routing/routing.css'
+import FrontendCourse from './Components/function-based-comps/Routing/FrontendCourse'
+import BackendCourse from './Components/function-based-comps/Routing/BackendCourse'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import ReduxCounter from './Components/function-based-comps/redux/ReduxCounter'
+import { useSelector } from 'react-redux'
+import ReduxLogin from './Components/function-based-comps/redux/ReduxLogin'
 
 const App = () => {
-  const[show,setShow] = useState(true)
+  const[show,setShow] = useState(true);
+  const loginVal = useSelector(state=>state.loginState);
 
   return (
     <>
@@ -87,21 +93,22 @@ const App = () => {
       {/* <RoomIntensity /> */}
       {/* <KeypadLock /> */}
 
-      <Router>
+      {/* <Router>
         <Routes>
           <Route path='/' element={<Login/>} />
           <Route path='/register' element={<Register/>} />
           <Route path='/home' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/courses' element={<Courses/>}>
-
             <Route path='frontend' element={<FrontendCourse/>} />
             <Route path='backend' element={<BackendCourse/>}/>
-            
           </Route>
           <Route path='/*' element={<NotFound/>} />
         </Routes>
-      </Router>
+      </Router> */}
+
+    {loginVal?<ReduxCounter />:<ReduxLogin />}
+      
 
       
     </>
