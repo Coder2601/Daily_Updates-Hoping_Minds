@@ -1,11 +1,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import { handleLogin } from './actions/loginActions';
 
 const ReduxLogin = () => {
     const dispatch = useDispatch();
   return (
     <div>
-        <button onClick={()=>dispatch({type:'IN'})}>Login</button>
+        <button onClick={()=>dispatch(handleLogin())}>Login</button>
 
     </div>
   )
