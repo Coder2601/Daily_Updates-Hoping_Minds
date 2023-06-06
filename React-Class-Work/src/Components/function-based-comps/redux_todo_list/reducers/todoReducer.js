@@ -1,16 +1,14 @@
-const initialState = [
-    {
-        id:0,
-        task:'List of tasks'
-    }
-]
+const initialState = []
 
 export const todoReducer=(state=initialState,action)=>{
     switch(action.type){
         case 'ADD':
-            return [...state]
-        case 'REMOVE': 
-            return [...state]
+            return [...state, action.todo]
+        case 'REMOVE': {
+            state.splice(action.payload,1);
+            console.log(state);
+            return [...state];
+        }
         default: return state;
     }
 }

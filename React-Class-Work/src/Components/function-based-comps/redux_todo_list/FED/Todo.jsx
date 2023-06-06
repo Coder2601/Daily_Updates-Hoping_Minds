@@ -1,25 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { handleAddTask, hanldeInputTask } from '../actions/addTodo';
+import { handleAddTask } from '../actions/addTodo';
 import { handleShowList } from '../actions/showlist';
 import { handleDeleteTask } from '../actions/deleteTodo';
 
 const Todo = () => {
     const dispatch = useDispatch();
-    const taskList = useSelector(state => state);
+    const taskList = useSelector(state => state.tasks);
+    const [text, setText] = useState();
 
+    const [id, setId] = useState(taskList.length - 1);
+
+    const hanldeInputTask = (event) => {
+        setText(event.target.value);
+        setId(taskList.length);
+    }
+
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        document.getElementById('taskText').value = '';
+        console.log(taskList)
+        console.log(id)
+    }
 
     return (
         <>
-            {console.log(taskList)}
-            <button onClick={() => dispatch(handleShowList())}>Show List</button>
+            <button onClick={() => dispatch({type:'SHOW'})}>Show List</button>
             <br /><br />
             <div className='section1'>
-                <input type="text" placeholder='Add Task here' onChange={(event) => dispatch(hanldeInputTask(event))} />
+                <form onSubmit={handleSubmit}>
+                    <input type="text" placeholder='Add Task here' onChange={(event) => hanldeInputTask(event)} id='taskText' />
 
-                &nbsp;&nbsp;
+                    &nbsp;&nbsp;
 
-                <button onClick={() => dispatch(handleAddTask())}>+</button>
+                    <button onClick={() => dispatch(handleAddTask(text, id))}>+</button>
+                </form>
             </div>
             <br /><br />
             <div className='section2'>
@@ -30,7 +45,7 @@ const Todo = () => {
                             <li key={index}>
                                 {item.task}
                                 &nbsp; &nbsp;
-                                <button onClick={handleDeleteTask(index)}>x</button>
+                                <button onClick={()=>dispatch(handleDeleteTask(index))}>x</button>
                             </li>
                         )
                     })}
