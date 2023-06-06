@@ -38,7 +38,7 @@ import ParentForm from './Components/function-based-comps/props/Form/ParentForm'
 import Table from './Components/function-based-comps/list-rendering/Table'
 import EffectComponent from './Components/function-based-comps/useEffectHook/EffectComponent'
 import Posts from './Components/function-based-comps/useEffectHook/Posts'
-import Todo from './Components/function-based-comps/Todos/Todo'
+import Todo from './Components/function-based-comps/redux_todo_list/FED/Todo'
 import Screen from './Components/function-based-comps/Weather-app/Screen'
 import RefComponent from './Components/function-based-comps/useRefHook/RefComponent'
 import CallbackComponent from './Components/function-based-comps/useCallback-Hook/CallbackComponent'
@@ -54,17 +54,20 @@ import About from './Components/function-based-comps/Routing/About'
 import Home from './Components/function-based-comps/Routing/Home'
 import Courses from './Components/function-based-comps/Routing/Courses'
 import NotFound from './Components/function-based-comps/Routing/NotFound'
-import './Components/function-based-comps/Routing/routing.css'
+// import './Components/function-based-comps/Routing/routing.css'
 import FrontendCourse from './Components/function-based-comps/Routing/FrontendCourse'
 import BackendCourse from './Components/function-based-comps/Routing/BackendCourse'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ReduxCounter from './Components/function-based-comps/redux/ReduxCounter'
 import { useSelector } from 'react-redux'
 import ReduxLogin from './Components/function-based-comps/redux/ReduxLogin'
+import List from './Components/function-based-comps/redux_todo_list/FED/List'
 
 const App = () => {
-  const[show,setShow] = useState(true);
-  const loginVal = useSelector(state=>state.loginState);
+  // const [show, setShow] = useState(true);
+  // const loginVal = useSelector(state => state.loginState);
+
+  const isVisible = useSelector(state=>state.showHide)
 
   return (
     <>
@@ -75,7 +78,7 @@ const App = () => {
 
       {/* <div className="App"> */}
 
-        {/* <Table /> */}
+      {/* <Table /> */}
       {/* </div> */}
       {/* <EffectComponent /> */}
       {/* <Posts /> */}
@@ -86,7 +89,7 @@ const App = () => {
       {/* <Screen /> */}
       {/* <RefComponent/> */}
       {/* <CallbackComponent/> */}
-      
+
       {/* <Playlist /> */}
       {/* <CounterReducer /> */}
       {/* <HideNseek/> */}
@@ -107,12 +110,13 @@ const App = () => {
         </Routes>
       </Router> */}
 
-    {loginVal?<ReduxCounter />:<ReduxLogin />}
-      
-
-      
+      {/* {loginVal?<ReduxCounter />:<ReduxLogin />} */}
+      {isVisible?<List/>:<Todo />}
     </>
   )
 }
+
+
+
 
 export default App
