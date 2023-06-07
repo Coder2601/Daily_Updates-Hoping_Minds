@@ -1,3 +1,5 @@
+#WeatherApp API: "http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=143454aa39bbe3442a890cdbf3f9db36"
+
 # Question-Bank
 1.  Swap the values of given two variables
 
