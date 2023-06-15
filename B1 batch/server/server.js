@@ -1,120 +1,35 @@
 const express = require('express');
 
 const server = express();
-const PORT = 5000;
-const blogRoute = require('./Routes/blogRoutes');
-const articleRoute = require("./Routes/articles")
-server.use(express.json());
+const PORT = 8000;
+const clientRoute = require('./Routes/userRoutes');
+const articles = require('./Routes/articles')
+const authRoute = require('./Routes/authRoutes')
+const loginAuth = require('./Routes/loginAuth')
+//allows us to send and receive json data
+server.use(express.json())
 
+server.use('/api/auth',authRoute);
+server.use('/api',loginAuth)
+
+// server.use('/',sup);
 server.get('/',(request,response)=>{
-    response.send('Server running successfully')
-})
+    response.send('Welcome aboard')
+});
 
-//defining path to access routes in blog file
-server.use('/demoApp/blogs',blogRoute);
 
-//defining path to access routes in article file
-server.use('/demoApp/articles',articleRoute);
+server.use('/api/users',clientRoute);
+server.use('/api/article',articles);
 
 
-server.listen(PORT,()=>console.log(`Server is running at port: ${PORT}`))
 
+// function sup(req,res,next){
+//     console.log('sup');
+//     next();
+// }
+// function how(req,res,next){
+//     console.log('how');
+//     next()
+// }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const http = require('http');
-// const PORT = 8080;
-
-// const server = http.createServer((request, response)=>{
-//     response.write('Server working successfully..');
-//     response.end('\n server stopped!');
-// });
-
-// server.listen(PORT,()=>console.log(`Server running at Port: ${PORT}`))
+server.listen(PORT,()=>console.log(`Server is running at port ${PORT}`))
