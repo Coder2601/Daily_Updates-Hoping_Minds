@@ -1,8 +1,14 @@
 const express = require("express");
 const routes = express.Router();
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
-let users = [];
+let users = [{
+    id: "1",
+    name: "Adi",
+    password: "$2b$10$FSaQkz9sVtAAQiZbGQMIWu3r9OKIgFlXP5QfbPLySVA8VavRcLXGm"
+  }];
 
 routes.post('/register', async (req, res) => {
     let id = users.length + 1;
@@ -31,7 +37,9 @@ routes.post('/login', async(req, res) => {
         console.log(result);
         if(result){
             res.send('Login success');
-            
+            const token = jwt.sign(user,process.env.Security_Key);
+            console.log(token);
+
         }else{
             res.send('Login Falied')
         }
