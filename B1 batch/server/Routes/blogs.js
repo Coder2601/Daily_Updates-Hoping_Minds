@@ -34,7 +34,9 @@ const blogs = [
 
 
 routes.get('/',authMiddleware,(req,res)=>{
-    res.send('Getting headers')
+    let blogData = blogs.filter(blog=>blog.id===req.user.id)
+    res.send({data:blogData});
+
 })
 
 function authMiddleware(req,res,next){
