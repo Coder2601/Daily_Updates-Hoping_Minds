@@ -4,11 +4,20 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-let users = [{
-    id: "1",
-    name: "Adi",
-    password: "$2b$10$FSaQkz9sVtAAQiZbGQMIWu3r9OKIgFlXP5QfbPLySVA8VavRcLXGm"
-  }];
+let users = [
+    {
+        id: "1",
+        name: "Guru",
+        password: "$2b$10$61ktCxXhngtjtfbJeQ3ioOymniZyNRiKs1Jo49J6ckMB5Rpw3xINe",
+        actualPass:"1122"
+    },
+    {
+        id: "2",
+        name: "Dhvani",
+        password: "$2b$10$rCw5XTPbz0BaPmEx3vzfwukZ8laPjVm0J99RbXb1AhQ1qyCUZqlAm",
+        actualPass: "0909"
+    }
+];
 
 routes.post('/register', async (req, res) => {
     let id = users.length + 1;
@@ -17,7 +26,8 @@ routes.post('/register', async (req, res) => {
         let newUser = {
             id: id,
             name: req.body.name,
-            password: encPass
+            password: encPass,
+            actualPass : req.body.password
         }
         users.push(newUser)
         res.send({ msg: 'Registered Successfully', users: users })
@@ -36,8 +46,10 @@ routes.post('/login', async(req, res) => {
         const result = await bcrypt.compare(pass,user.password);
         console.log(result);
         if(result){
-            res.send('Login success');
-            const token = jwt.sign(user,process.env.Security_Key);
+
+            const token = generateAccessToken(user)
+            
+            res.send({msg:'Login success',authToken:token});
             console.log(token);
 
         }else{
@@ -48,5 +60,10 @@ routes.post('/login', async(req, res) => {
     }
     // res.send('Looking for user')
 })
+
+function generateAccessToken(user){
+    return jwt.sign(user,process.env.Security_Key,{expiresIn:'50s'});
+}
+
 
 module.exports = routes
