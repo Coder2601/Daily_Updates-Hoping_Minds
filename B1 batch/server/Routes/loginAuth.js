@@ -4,6 +4,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
+let allrefreshTokens = [];
+
 let users = [
     {
         id: "1",
@@ -47,10 +49,15 @@ routes.post('/login', async(req, res) => {
         console.log(result);
         if(result){
 
-            const token = generateAccessToken(user)
+            const accessToken = generateAccessToken(user)
+            let refreshToken = jwt.sign(user,process.env.Refresh_Security_Key);
+            allrefreshTokens.push(refreshToken);
             
-            res.send({msg:'Login success',authToken:token});
-            console.log(token);
+            res.send({
+                msg:'Login success',
+                authToken:accessToken,
+                refreshToken:refreshToken
+            });
 
         }else{
             res.send('Login Falied')
@@ -61,8 +68,21 @@ routes.post('/login', async(req, res) => {
     // res.send('Looking for user')
 })
 
+routes.post('/newToken',(req,res)=>{
+    let refToken = req.body.token;
+    
+    jwt.verify(refToken,process.env.Refresh_Security_Key,(err,data)=>{
+        if(err) res.sendStatus(403);
+        else {
+            let token = generateAccessToken(data)
+            res.send({newAuthToken:token})
+        }
+    });
+})
+
+
 function generateAccessToken(user){
-    return jwt.sign(user,process.env.Security_Key,{expiresIn:'50s'});
+    return jwt.sign(user,process.env.Security_Key);
 }
 
 

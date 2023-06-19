@@ -34,6 +34,7 @@ const blogs = [
 
 
 routes.get('/',authMiddleware,(req,res)=>{
+    
     let blogData = blogs.filter(blog=>blog.id===req.user.id)
     res.send({data:blogData});
 
