@@ -1,8 +1,8 @@
 const express = require('express');
-
-
 const server = express();
+
 const PORT = 8000;
+
 const clientRoute = require('./Routes/userRoutes');
 const articles = require('./Routes/articles')
 const authRoute = require('./Routes/authRoutes')

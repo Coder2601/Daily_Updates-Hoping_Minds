@@ -4,7 +4,9 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-let allrefreshTokens = [];
+let allrefreshTokens = [
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYW1lIjoiR3VydSIsInBhc3N3b3JkIjoiJDJiJDEwJDYxa3RDeFhobmd0anRmYkplUTNpb095bW5pWnlOUmlLczFKbzQ5SjZja01CNVJwdzN4SU5lIiwiYWN0dWFsUGFzcyI6IjExMjIiLCJpYXQiOjE2ODcyMzQ4NjV9.UGSxJ7uuXHPvRq1ib3YXqBcpkMtZos5une9FTOw0NBo"
+];
 
 let users = [
     {
@@ -65,24 +67,33 @@ routes.post('/login', async(req, res) => {
     }else{
         res.send('User not found');
     }
-    // res.send('Looking for user')
 })
 
 routes.post('/newToken',(req,res)=>{
     let refToken = req.body.token;
-    
-    jwt.verify(refToken,process.env.Refresh_Security_Key,(err,data)=>{
+    if(refToken===null) res.sendStatus(402)
+    else if(!allrefreshTokens.includes(refToken)) res.sendStatus(404)
+    else jwt.verify(refToken,process.env.Refresh_Security_Key,(err,data)=>{
         if(err) res.sendStatus(403);
         else {
-            let token = generateAccessToken(data)
+            let token = generateAccessToken({id:data.id})
             res.send({newAuthToken:token})
         }
     });
+});
+
+
+routes.delete('/deleteToken',(req,res)=>{
+    let tokenToBeDeleted = req.body.token;
+
+    allrefreshTokens = allrefreshTokens.filter(token=>token!==tokenToBeDeleted);
+    res.status(204).send('Deleted Successfully')
+
 })
 
 
 function generateAccessToken(user){
-    return jwt.sign(user,process.env.Security_Key);
+    return jwt.sign(user,process.env.Security_Key,{expiresIn:'1m'});
 }
 
 
