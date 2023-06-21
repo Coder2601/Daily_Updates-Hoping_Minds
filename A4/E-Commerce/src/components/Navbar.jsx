@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
   const ulTag = {
@@ -11,9 +11,14 @@ const Navbar = () => {
     marginBottom:'50px',
     
   }
+  const nav = useNavigate();
   return (
     <>
       <nav style={ulTag}>
+        <b onClick={()=>nav(-1)}>{` <= `}</b>
+        <b>Navigate</b>
+        <b onClick={()=>nav(1)}>{` => `}</b>
+        
         <b style={listItems}>CarShop</b>
         <Link style={listItems} to={'/'}>Home</Link>
         <Link style={listItems} to={'/products'}>Products</Link>
