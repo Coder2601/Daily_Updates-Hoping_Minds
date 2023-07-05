@@ -8,18 +8,27 @@
 
 const express = require('express');
 const PORT = 8000;
+
 //65535- maximum limit of port number
 //avoid using 3000 series of port number as FED runs on it.
 
 const server = express();
+const users = require('./routes/userRoutes')
+const authRoutes = require('./routes/authenticationRoute')
 //express function returns an object(server) that is used to receive requests and send reesponses
 
-server.post('/',(request, response)=>{
-    response.send("POST request at root received").status(204);
-})
+//allows to send and receive JSON data
+server.use(express.json());
+
+server.use('/user',users)
+server.use('/auth',authRoutes)
+
+
 server.get('/',(request, response)=>{
     response.send("GET request at root received").status(200);
 })
+
+
 
 
 server.listen(PORT,()=>console.log(`Server is running at port: ${PORT}`))
