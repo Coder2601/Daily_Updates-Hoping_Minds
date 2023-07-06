@@ -14,7 +14,8 @@ const PORT = 8000;
 
 const server = express();
 const users = require('./routes/userRoutes')
-const authRoutes = require('./routes/authenticationRoute')
+const authRoutes = require('./routes/authenticationRoute');
+const tokenRoutes = require('./routes/authenticationNauthorization')
 //express function returns an object(server) that is used to receive requests and send reesponses
 
 //allows to send and receive JSON data
@@ -22,6 +23,7 @@ server.use(express.json());
 
 server.use('/user',users)
 server.use('/auth',authRoutes)
+server.use('/tokenAuth', tokenRoutes)
 
 
 server.get('/',(request, response)=>{
