@@ -1,0 +1,30 @@
+.feedbackForm{
+    background-color: bisque;
+    color: brown;
+    display: inline-block;
+    padding: 20px;
+    border: 2px dashed black;
+}
+
+table{
+    background-color: black;
+    color: wheat;
+}
+tr,td,th{
+    border: 1px solid beige;
+    
+}
+.previousClass{
+    background-color: bisque;
+    color: chocolate;
+    font-size: larger;
+    font-weight: bolder;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.nextClass{
+    background-color: cornflowerblue;
+    color: rgb(255, 205, 112);
+    font-size: smaller;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
